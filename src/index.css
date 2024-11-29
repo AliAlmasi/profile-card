@@ -1,0 +1,28 @@
+:root {
+  --white: #f1f5f9;
+  --w-gray: #cbd5e1;
+  --gray: #64748b;
+  --b-gray: #334155;
+  --black: #0f172a;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+body {
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
