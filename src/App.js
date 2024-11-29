@@ -10,13 +10,8 @@ function App() {
         <Name name={profileData.name} />
         <Bio bio={profileData.bio} />
         <div className="tags">
-          {profileData.tags.map((obj) => (
-            <Tag
-              name={obj.name}
-              level={obj.level}
-              color={obj.color}
-              isLight={isLight(obj.color)}
-            />
+          {profileData.tags.map((tag) => (
+            <Tag tagObj={tag} />
           ))}
         </div>
       </div>
@@ -32,17 +27,22 @@ const Name = ({ name }) => <h1 className="name">{name}</h1>;
 
 const Bio = ({ bio }) => <p className="bio">{bio}</p>;
 
-function Tag({ name, level, color, isLight }) {
+function Tag({ tagObj }) {
+  const { name, level, color } = tagObj;
+
   return (
     <span
       className="tag"
       style={
-        isLight
+        isLight(color)
           ? { backgroundColor: color, color: "#0f172a" }
           : { backgroundColor: color }
       }
     >
-      {name} {level}
+      {name + " "}
+      {level === "beginner" && "👶"}
+      {level === "intermediate" && "👍"}
+      {level === "advanced" && "💪"}
     </span>
   );
 }
